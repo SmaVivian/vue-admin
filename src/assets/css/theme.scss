@@ -1,0 +1,48 @@
+@import 'mixin.scss';
+
+.ell {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.two-ell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.clearfix:after,.clearfix:before{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+// .g-content-wrap {
+// 	width: 1200px;
+// 	margin: 0 auto;
+// 	padding-top: 20px;
+// 	padding-bottom: 20px;
+// }
+
+.g-wrap {
+	width: 1200px;
+  min-height: calc(100vh - 60px);
+	margin: 0 auto;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.g-no-data  {
+	margin-top: 60px;
+	.no-data-bg {
+		// margin: auto;
+		// width: 300px;
+		// height: 200px;
+		// background: url(~@/assets/images/no-data.png) center center no-repeat;
+		// background-size: contain;
+	}
+}

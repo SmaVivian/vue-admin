@@ -1,0 +1,144 @@
+@import 'mixin.scss';
+
+// 分页样式
+.el-pagination.is-background{
+	text-align: center;
+  /* margin-left:394px; */
+  padding-top:20px;
+}
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+  background-color: white;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  background: $primary;
+}
+.el-pagination{
+  padding: 0 5px;
+}
+
+// 修改tab栏的样式
+.tabs {
+  .el-tabs__item {
+    width: 80px;
+    height: 24px;
+    line-height: 24px;
+    padding: 0px;
+    text-align: center;
+    margin-right: 55px;
+  }
+  #tab-second.el-tabs__nav.is-top {
+    border: 0;
+  }
+  .el-tabs__item.is-active {
+    font-family: PingFang-SC-Bold;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    background-color: $primary;
+  }
+  .el-tabs__header {
+    margin: 0 0 28px;
+  }
+  //清除边框
+  .el-tabs--card > .el-tabs__header .el-tabs__nav {
+    border: 0px;
+  }
+  .el-tabs--card > .el-tabs__header {
+    border-bottom: 0px;
+  }
+  .el-tabs--card > .el-tabs__header .el-tabs__item {
+    border-bottom: 0px;
+    border-left: 0px;
+  }
+  .el-tabs--top.el-tabs--card .el-tabs__item:nth-child(2) {
+    padding-left: 0px;
+  }
+  .el-tabs--top.el-tabs--card .el-tabs__item:last-child {
+    padding-right: 0px;
+  }
+}
+
+// 按钮
+.el-button--primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.el-button:focus, 
+.el-button:hover {
+  color: $primary;
+  border-color: $primaryHover;
+}
+
+.el-button--primary:focus, 
+.el-button--primary:hover {
+  color: #fff;
+  background: $primaryHover;
+  border-color: $primaryHover;
+}
+
+// 表单样式
+.el-form-item.is-success .el-input__inner, .el-form-item.is-success .el-input__inner:focus, .el-form-item.is-success .el-textarea__inner, .el-form-item.is-success .el-textarea__inner:focus {
+  border-color: #dcdfe6;
+}
+
+// select
+.el-select-dropdown__item.selected {
+  color: $primary;
+}
+
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: $primary;
+}
+
+// checkbox
+.el-switch.is-checked .el-switch__core {
+  border-color: $primary;
+  background-color: $primary;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.el-checkbox__input.is-checked+.el-checkbox__label {
+  color: $primary;
+}
+
+// radio
+.el-radio__input.is-checked .el-radio__inner {
+  border-color: $primary;
+  background: $primary;
+}
+
+.el-radio__input.is-checked+.el-radio__label {
+  color: $primary;
+}
+
+// date
+.el-date-picker__header-label.active, .el-date-picker__header-label:hover {
+  color: $primary;
+}
+
+.el-date-table td.current:not(.disabled) span {
+  background-color: $primary;
+}
+
+.el-date-table td.available:hover {
+  color: $primary;
+}
+
+.el-month-table td.today .cell,
+.el-year-table td .cell:hover, 
+.el-year-table td.current:not(.disabled) .cell {
+  color: $primary;
+}
+
+.el-month-table td .cell:hover, 
+.el-month-table td.current:not(.disabled) .cell {
+  color: $primary;
+}
+
+.el-time-panel__btn.confirm {
+  color: $primary;
+}

@@ -1,0 +1,9 @@
+$title: 16px;
+$subtitle: 13px;
+$border: #e1e1e1;
+$primary: #6ea8dc;
+$primaryHover: #7cafe4; // 鼠标悬浮颜色
+
+@mixin bg_color($color) {
+  background-color: $color;
+}
