@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <div class="main-container">
-      <cmp-header></cmp-header>
+    <div class="g-container" 
+      :class="{'header-no': !$store.getters.headerShow, 'bg1': $store.getters.bodyBg === 'bg1'}">
+      <cmp-header v-if="$store.getters.headerShow"></cmp-header>
       <!-- <navbar/> -->
-      <div class="g-wrap">
-        <transition>
-          <!-- or name="fade" -->
-          <!-- <router-view :key="key"></router-view> -->
-          <keep-alive>
-            <router-view/>
-          </keep-alive>
-        </transition>
-      </div>
+      <transition>
+        <!-- or name="fade" -->
+        <!-- <router-view :key="key"></router-view> -->
+        <keep-alive>
+          <router-view/>
+        </keep-alive>
+      </transition>
     </div>
   </div>
 </template>
@@ -23,6 +22,9 @@ export default {
   components: {
     cmpHeader
   },
+  created() {
+    console.log(this.$store.getters)
+  },
 }
 </script>
 
@@ -33,10 +35,4 @@ export default {
   @import '~@/assets/css/resetCmp.scss';
 </style>
 
-// <style lang="scss">
-// .main-wrap {
-//   min-height: calc(100vh - 60px);
-//   padding-top: 20px;
-//   box-sizing: border-box;
-// }
-// </style>
+

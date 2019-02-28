@@ -2,6 +2,8 @@ import Cookies from 'js-cookie'
 
 const app = {
   state: {
+    bodyBg: '',
+    headerShow: true,
     sidebar: {
       opened: !+Cookies.get('sidebarStatus'),
       withoutAnimation: false
@@ -9,6 +11,12 @@ const app = {
     device: 'desktop'
   },
   mutations: {
+    CHANGE_BODY_BG: (state, bg) => {
+      state.bodyBg = bg
+    },
+    TOGGLE_HEADER: (state, isShow) => {
+      state.headerShow = isShow
+    },
     TOGGLE_SIDEBAR: state => {
       if (state.sidebar.opened) {
         Cookies.set('sidebarStatus', 1)
@@ -28,6 +36,12 @@ const app = {
     }
   },
   actions: {
+    changeBodyBg({ commit }, bg) {
+      commit('CHANGE_BODY_BG', bg)
+    },
+    ToggleHeader({ commit }, isShow) {
+      commit('TOGGLE_HEADER', isShow)
+    },
     ToggleSideBar: ({ commit }) => {
       commit('TOGGLE_SIDEBAR')
     },

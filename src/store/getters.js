@@ -1,4 +1,6 @@
 const getters = {
+  bodyBg: state => state.app.bodyBg,
+  headerShow: state => state.app.headerShow,
   sidebar: state => state.app.sidebar,
   device: state => state.app.device,
   token: state => state.user.token,

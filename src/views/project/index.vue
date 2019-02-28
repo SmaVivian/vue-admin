@@ -1,11 +1,13 @@
 <template>
-  <div class="page-project clearfix">
-    <sidebar :menuList="sidebarData" :openeds="openedsArr"></sidebar>
-    <div class="project-right">
-      <h1>全部项目</h1>
-      <ul class="pro-list">
-        <router-link tag="li" :to="{path: '/project/list'}">抗联展览项目</router-link>
-      </ul>
+  <div class="g-wrap">
+    <div class="page-project clearfix">
+      <sidebar :menuList="sidebarData" :openeds="openedsArr"></sidebar>
+      <div class="project-right">
+        <h1>全部项目</h1>
+        <ul class="pro-list">
+          <router-link tag="li" :to="{path: '/project/list'}">抗联展览项目</router-link>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -85,6 +87,12 @@ export default {
   },
   created() {
     // setTimeout(this.getNavData, 1000)
+  },
+  activated() {
+    this.$store.dispatch('changeBodyBg', 'bg1')
+  },
+  deactivated() {
+    this.$store.dispatch('changeBodyBg', '')
   }
 }
 </script>
@@ -99,12 +107,6 @@ export default {
       }
     }
   }
-}
-</style>
-
-<style>
-.main-container {
-  background: #f2f2f2;
 }
 </style>
 

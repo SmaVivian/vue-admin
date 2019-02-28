@@ -41,6 +41,9 @@ import { isvalidUsername } from '@/utils/validate'
 
 export default {
   name: 'Login',
+  // computed: {
+  //   ...mapGetters(['headerShow'])
+  // },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
@@ -102,6 +105,13 @@ export default {
         }
       })
     }
+  },
+  activated() {
+    // console.log(this.headerShow)
+    this.$store.dispatch('ToggleHeader', false)
+  },
+  deactivated() {
+    this.$store.dispatch('ToggleHeader', true)
   }
 }
 </script>
