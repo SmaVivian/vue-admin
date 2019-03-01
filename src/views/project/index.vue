@@ -8,7 +8,7 @@
           <el-row :gutter="20">
             <el-col :span="6">
               <el-card class="box-card">
-                <router-link class="card-item" tag="div" :to="{path: '/project/list'}">抗联展览项目</router-link>
+                <router-link class="card-item" tag="div" :to="{path: '/project/sub'}">抗联展览项目</router-link>
                 <!-- <div v-for="o in 4" :key="o" class="text item">
                   {{'列表内容 ' + o }}
                 </div> -->
@@ -16,8 +16,6 @@
             </el-col>
           </el-row>
           <!-- <router-link tag="li" :to="{path: '/project/list'}">抗联展览项目</router-link> -->
-
-          
         </ul>
       </div>
     </div>

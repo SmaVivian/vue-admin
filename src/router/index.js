@@ -68,12 +68,43 @@ export const constantRouterMap = [
     component: () => import('@/views/project/index'),
     meta: {title: '项目', rank: 1 }
   },
+  // 项目二级页面
   {
-    path: '/project/list',
-    name: 'projectList',
-    component: () => import('@/views/project/list'),
-    meta: {title: '项目列表', rank: 2 }
+    path: '/project/sub',
+    name: 'projectSub',
+    component: () => import('@/views/project/sub-index'),
+    meta: {title: '项目二级菜单', rank: 2 }
   },
+  // {
+  //   path: '/project/task',
+  //   name: 'projectTask',
+  //   component: () => import('@/views/project/task'),
+  //   meta: {title: '任务', rank: 2 }
+  // },
+  // {
+  //   path: '/project/exhibits',
+  //   name: 'projectExhibits',
+  //   component: () => import('@/views/project/exhibits'),
+  //   meta: {title: '展品', rank: 2 }
+  // },
+  // {
+  //   path: '/project/file',
+  //   name: 'projectFile',
+  //   component: () => import('@/views/project/file'),
+  //   meta: {title: '文件', rank: 2 }
+  // },
+  // {
+  //   path: '/project/discuss',
+  //   name: 'projectDiscuss',
+  //   component: () => import('@/views/project/discuss'),
+  //   meta: {title: '讨论', rank: 2 }
+  // },
+  // {
+  //   path: '/project/statistic',
+  //   name: 'projectStatistic',
+  //   component: () => import('@/views/project/statistic'),
+  //   meta: {title: '统计', rank: 2 }
+  // },
   {
     path: '/collect',
     name: 'collect',
