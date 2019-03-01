@@ -56,23 +56,6 @@ import Layout from '../views/layout/Layout'
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
-
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,   // 在左侧sidebar中不显示
-    children: [{
-      path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
-    }]
-  }
-]
-
-export const asyncRouterMap = [
   {
     path: '/',
     name: 'home',
@@ -103,6 +86,24 @@ export const asyncRouterMap = [
     component: () => import('@/views/digital/index'),
     meta: {title: '数字资产', rank: 1 }
   },
+  
+  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+  { path: '/404', component: () => import('@/views/404'), hidden: true },
+
+  {
+    path: '/dashboard',
+    component: Layout,
+    redirect: '/dashboard',
+    name: 'Dashboard',
+    hidden: true,   // 在左侧sidebar中不显示
+    children: [{
+      path: 'dashboard',
+      component: () => import('@/views/dashboard/index')
+    }]
+  }
+]
+
+export const asyncRouterMap = [
   // {
   //   path: '/project',
   //   component: Layout,

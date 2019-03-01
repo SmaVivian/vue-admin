@@ -6,7 +6,7 @@
         <span class="svg-container">
           <svg-icon icon-class="user" />
         </span>
-        <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="username" />
+        <el-input v-model="loginForm.username" name="username" type="text" auto-complete="on" placeholder="用户名/手机号" />
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
@@ -17,7 +17,7 @@
           v-model="loginForm.password"
           name="password"
           auto-complete="on"
-          placeholder="password"
+          placeholder="密码"
           @keyup.enter.native="handleLogin" />
         <span class="show-pwd" @click="showPwd">
           <svg-icon icon-class="eye" />
@@ -25,7 +25,7 @@
       </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
-          Sign in
+          登录
         </el-button>
       </el-form-item>
       <div class="tips">
@@ -37,24 +37,25 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
+import md5 from 'js-md5';
+import { validate } from '@/utils/validate'
 
 export default {
   name: 'Login',
-  // computed: {
-  //   ...mapGetters(['headerShow'])
-  // },
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!isvalidUsername(value)) {
-        callback(new Error('请输入正确的用户名'))
-      } else {
-        callback()
-      }
-    }
+    // const validateUsername = (rule, value, callback) => {
+    //   if (!isvalidUsername(value)) {
+    //     callback(new Error('请输入正确的用户名'))
+    //   } else {
+    //     callback()
+    //   }
+    // }
     const validatePass = (rule, value, callback) => {
-      if (value.length < 5) {
-        callback(new Error('密码不能小于5位'))
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else if(!validate(value, 'password')) {
+        // callback(new Error('6-20位,必须包含数字、字母或特殊字符中的两种'))
+        callback()
       } else {
         callback()
       }
@@ -65,21 +66,24 @@ export default {
         password: 'admin'
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePass }]
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { max: 20, message: '最多20字符', trigger: 'blur' }
+        ],
+        password: [{ validator: validatePass, trigger: 'blur' }]
       },
       loading: false,
       pwdType: 'password',
-      redirect: undefined
+      redirect: ''  // 重定向到之前页面
     }
   },
   watch: {
-    $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
-    }
+    // $route: {
+    //   handler: function(route) {
+    //     console.log(22222222222, route.query)
+    //     this.redirect = route.query && route.query.redirect
+    //   }
+    // }
   },
   methods: {
     showPwd() {
@@ -93,7 +97,11 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('Login', this.loginForm).then(() => {
+          this.$store.dispatch('Login', {
+            username: this.loginForm.username,
+            password: md5(this.loginForm.password)
+          })
+          .then(() => {
             this.loading = false
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
@@ -107,11 +115,11 @@ export default {
     }
   },
   activated() {
-    // console.log(this.headerShow)
-    this.$store.dispatch('ToggleHeader', false)
+    this.redirect = this.$route.query && this.$route.query.redirect
+    this.$store.dispatch('ToggleHeader', false) // 隐藏header
   },
   deactivated() {
-    this.$store.dispatch('ToggleHeader', true)
+    this.$store.dispatch('ToggleHeader', true)  // 显示header
   }
 }
 </script>
