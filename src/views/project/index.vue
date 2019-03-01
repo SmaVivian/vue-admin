@@ -5,7 +5,19 @@
       <div class="project-right">
         <h1>全部项目</h1>
         <ul class="pro-list">
-          <router-link tag="li" :to="{path: '/project/list'}">抗联展览项目</router-link>
+          <el-row :gutter="20">
+            <el-col :span="6">
+              <el-card class="box-card">
+                <router-link class="card-item" tag="div" :to="{path: '/project/list'}">抗联展览项目</router-link>
+                <!-- <div v-for="o in 4" :key="o" class="text item">
+                  {{'列表内容 ' + o }}
+                </div> -->
+              </el-card>
+            </el-col>
+          </el-row>
+          <!-- <router-link tag="li" :to="{path: '/project/list'}">抗联展览项目</router-link> -->
+
+          
         </ul>
       </div>
     </div>
@@ -102,8 +114,17 @@ export default {
   .project-right {
     padding-left: 240px;
     .pro-list {
-      li {
+      .box-card {
+        position: relative;
         cursor: pointer;
+        height: 100px;
+        .card-item {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 10px;
+          left: 10px;
+        }
       }
     }
   }

@@ -1,5 +1,9 @@
 @import 'mixin.scss';
 
+#app {
+	height: 100%;
+}
+
 .ell {
 	overflow: hidden;
 	white-space: nowrap;
