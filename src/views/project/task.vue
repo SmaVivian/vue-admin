@@ -1,29 +1,27 @@
 <template>
-  <div class="g-wrap">
-    <div class="page-project-task">
-      <!-- <div class="top">
-        <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-        </el-breadcrumb>
-        <cmp-header-sub></cmp-header-sub>
-        <div class="menu-sub-right">
-          <span>看板视图</span>
-          <span>2</span>
-          <span>菜单</span>
-        </div>
-      </div> -->
-
-      <div class="content">
-        <el-row :gutter="20">
-          <el-col :span="4" v-for="(item, index) in list" :key="index">
-            <drag-list :list="item.arrList" :title="item.title"/>
-          </el-col>
-          <el-col :span="4">
-            <el-button plain>新建任务看板</el-button>
-          </el-col>
-        </el-row>
+  <div class="page-project-task">
+    <!-- <div class="top">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
+      </el-breadcrumb>
+      <cmp-header-sub></cmp-header-sub>
+      <div class="menu-sub-right">
+        <span>看板视图</span>
+        <span>2</span>
+        <span>菜单</span>
       </div>
+    </div> -->
+
+    <div class="content">
+      <el-row :gutter="20">
+        <el-col :span="4" v-for="(item, index) in list" :key="index">
+          <drag-list :list="item.arrList" :title="item.title"/>
+        </el-col>
+        <el-col :span="4">
+          <el-button plain>新建任务看板</el-button>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>

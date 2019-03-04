@@ -1,8 +1,6 @@
 <template>
-  <div class="g-wrap">
-    <div class="page-exhibits">
-      讨论
-    </div>
+  <div class="page-exhibits">
+    讨论
   </div>
 </template>
 

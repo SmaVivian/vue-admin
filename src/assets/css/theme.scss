@@ -42,6 +42,23 @@
 	position: relative;
 	// background: rgba(242,242,242,1);
 	padding-top: 60px;
+	box-sizing: border-box;
+}
+
+.fr {
+	float: right;
+}
+
+.fl {
+	float: left;
+}
+
+.mt-20 {
+	margin-top: 20px;
+}
+
+.mb-20 {
+	margin-bottom: 20px;
 }
 
 .g-container.bg1 {

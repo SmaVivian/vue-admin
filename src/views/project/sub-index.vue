@@ -1,5 +1,5 @@
 <template>
-  <div class="g-wrap">
+  <div class="page-project-sub-container">
     <div class="page-project-sub">
       <div class="top">
         <el-breadcrumb separator="/">
@@ -15,7 +15,9 @@
       </div>
 
       <div class="sub-content">
-        <component :is="currentTabCmp"></component>
+        <div class="sub-content-wrap">
+          <component :is="currentTabCmp"></component>
+        </div>
       </div>
     </div>
   </div>
@@ -78,6 +80,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-project-sub-container {
+  background-color: #f2f2f2;
+}
 .page-project-sub {
   .top {
     width: 100%;
@@ -85,9 +90,19 @@ export default {
     justify-content: space-around;
     align-items: center;
     background-color: #f2f2f2;
+    box-shadow: 0 2px 0 gray;  
   }
   .sub-content {
+    min-height: calc(100vh - 116px);
     padding: 20px;
+    box-sizing: border-box;
+    // background-color: #f2f2f2;
+    position: relative;
+    top: 2px;
+  }
+  .sub-content-wrap {
+    width: 1200px;
+    margin: 0 auto;
   }
 }
 </style>
