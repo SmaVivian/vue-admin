@@ -1,16 +1,14 @@
 <template>
   <div id="app">
     <div class="g-container" 
-      :class="{'header-no': !$store.getters.headerShow, 'bg1': $store.getters.bodyBg === 'bg1'}">
-      <cmp-header v-if="$store.getters.headerShow"></cmp-header>
-      <!-- <navbar/> -->
+      :class="{'header-no': !$store.getters.headerShow, 'bg-none': $store.getters.bodyBg === 'bgNone'}">
+      <router-view/>
+      <!-- <cmp-header v-if="$store.getters.headerShow"></cmp-header>
       <transition>
-        <!-- or name="fade" -->
-        <!-- <router-view :key="key"></router-view> -->
         <keep-alive>
           <router-view/>
         </keep-alive>
-      </transition>
+      </transition> -->
     </div>
   </div>
 </template>
@@ -19,9 +17,9 @@
 import cmpHeader from '@cmp/Header/index'
 export default {
   name: 'App',
-  components: {
-    cmpHeader
-  },
+  // components: {
+  //   cmpHeader
+  // },
   created() {
     console.log(this.$store.getters)
   },

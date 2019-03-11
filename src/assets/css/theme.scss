@@ -45,6 +45,14 @@
 	box-sizing: border-box;
 }
 
+.g-container.bg-none {
+	background-color: #fff;
+}
+
+.g-container.header-no {
+	padding-top: 0;
+}
+
 .fr {
 	float: right;
 }
@@ -59,14 +67,6 @@
 
 .mb-20 {
 	margin-bottom: 20px;
-}
-
-.g-container.bg1 {
-	background-color: #f2f2f2;
-}
-
-.g-container.header-no {
-	padding-top: 0;
 }
 
 .g-wrap {

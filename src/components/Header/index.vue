@@ -2,7 +2,7 @@
   <div class="cmp-header">
     <img class="logo" src="" alt="">
     <el-menu
-    :default-active="$route.path"
+    :default-active="activeMenu"
     class="el-menu-top"
     mode="horizontal"
     @select="handleSelect"
@@ -29,8 +29,10 @@
 export default {
   name: 'Header',
   data() {
+    console.log(this.$route.path.split('/')[1])
     return {
-      
+      activeMenu: '/' + this.$route.path.split('/')[1]
+      // activeMenu: [this.$route.meta.menuPath || this.$route.path]
     }
   },
   methods: {

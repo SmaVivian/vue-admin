@@ -40,7 +40,8 @@ Vue.mixin({
 });
 
 /* Layout */
-import Layout from '../views/layout/Layout'
+// import Layout from '../views/layout/Layout'
+import Layout from '@cmp/layout'
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -58,22 +59,31 @@ import Layout from '../views/layout/Layout'
 export const constantRouterMap = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/views/home/index'),
-    meta: {title: '首页' }
-  },
-  {
-    path: '/project',
-    name: 'project',
-    component: () => import('@/views/project/index'),
-    meta: {title: '项目', rank: 1 }
-  },
-  // 项目二级页面
-  {
-    path: '/project/sub',
-    name: 'projectSub',
-    component: () => import('@/views/project/sub-index'),
-    meta: {title: '项目二级菜单', rank: 2 }
+    name: 'index',
+    component: Layout,
+    meta: { title: '首页' },
+    redirect: '/home',
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/home/index'),
+        meta: {title: '首页' }
+      },
+      {
+        path: '/project',
+        name: 'project',
+        component: () => import('@/views/project/index'),
+        meta: {title: '项目', rank: 1 }
+      },
+      // 项目二级页面
+      {
+        path: '/project/sub',
+        name: 'projectSub',
+        component: () => import('@/views/project/sub-index'),
+        meta: {title: '项目二级菜单', rank: 2 }
+      },
+    ]
   },
   // {
   //   path: '/project/task',
