@@ -28,9 +28,9 @@ export default {
 
 <style lang="scss">
   @import './assets/css/reset.css';
-  @import 'element-ui/lib/theme-chalk/index.css';
+  @import './assets/css/element-variables.scss';
   @import '~@/assets/css/theme.scss';
-  @import '~@/assets/css/resetCmp.scss';
+  // @import '~@/assets/css/resetCmp.scss';
 </style>
 
 
