@@ -59,6 +59,7 @@ exports.cssLoaders = function(options) {
 
     return loaders
   }
+
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
@@ -67,7 +68,14 @@ exports.cssLoaders = function(options) {
     sass: generateLoaders('sass', {
       indentedSyntax: true
     }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: path.resolve(__dirname, '../src/assets/css/mixin.scss')
+        }
+      }
+    ),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
